@@ -1,22 +1,46 @@
 {
-  "_aide": "Votre fiche d'identité : la seule source de votre page. Remplacez chaque valeur (à droite des deux-points) par la vôtre, ou collez ici la fiche écrite par le Gem « Ma fiche d'entité ». Aide champ par champ : fiche.md. Exemple complet : fiche.exemple.json.",
   "type": "Person",
-  "nom": "Prénom Nom",
-  "phrase_identite": "Prénom Nom est [votre métier] chez [votre employeur], à [votre ville].",
-  "metier": "[Votre métier]",
+  "nom": "Lydia Schierig",
+  "phrase_identite": "Lydia Schierig est Junior Marketing Manager DACH chez Powell à Paris.",
+  "metier": "Junior Marketing Manager DACH",
   "employeur": {
-    "nom": "[Votre employeur ou votre projet]",
-    "url": ""
+    "nom": "Powell",
+    "url": "https://powell-software.com/de/",
+    "description": "Éditeur français de solutions de digital workplace, fondé en 2014 et basé à Paris."
   },
-  "ville": "[Votre ville]",
-  "domaines": ["[Domaine 1]", "[Domaine 2]", "[Domaine 3]"],
-  "ce_que_je_fais": "[Deux ou trois phrases : ce que vous faites, pour qui, avec quoi.]",
-  "parcours": "[Une ou deux phrases : d'où vous venez, ce que vous préparez.]",
-  "profils": [
-    { "nom": "LinkedIn", "url": "https://www.linkedin.com/in/votre-profil" }
+  "ville": "Paris",
+  "domaines": [
+    "Digital Marketing",
+    "Artificial Intelligence (AI)",
+    "B2B Marketing",
+    "Customer Satisfaction",
+    "International Development"
   ],
-  "theme": "clair",
-  "couleur_accent": "#2952CC",
+  "ce_que_je_fais": "Je travaille dans le marketing digital, où je traduis et adapte des contenus en allemand pour le marché DACH. Je crée des campagnes en langue allemande et je détermine, à partir du matériel existant, quels contenus utiliser sur quels canaux. J'intègre l'intelligence artificielle dans ce travail, notamment pour la traduction et l'adaptation des contenus.",
+  "parcours": "Actuellement en MBA marketing digital et IA en alternance à Paris, où je suis responsable du marché DACH. J'ai une formation initiale en marketing, suivi d'un stage en France, puis j'ai terminé mes études en Allemagne et y ai travaillé 2 à 3 ans avant de m'installer à Paris pour mon poste actuel.",
+  "profils": [
+    {
+      "nom": "LinkedIn",
+      "url": "https://www.linkedin.com/in/lydia-schierig/"
+    },
+    {
+      "nom": "GitHub",
+      "url": "https://github.com/Lyd-clv"
+    },
+    {
+      "nom": "YouTube",
+      "url": "https://www.youtube.com/@LydiaSchierig"
+    }
+  ],
+  "entite_liee": {
+    "type": "CreativeWork",
+    "nom": "Thèse professionnelle de MBA : Défis et stratégies d'expansion interculturelle d'une Digital Workplace sur le marché DACH",
+    "description": "Thèse portant sur les défis de l'expansion interculturelle d'une solution de Digital Workplace française sur le marché DACH et sur les stratégies de go-to-market.",
+    "relation": "autrice",
+    "titre_section": "Mon projet"
+  },
+  "theme": "editorial",
+  "couleur_accent": "#7A1E3A",
   "animations": true,
-  "identifiant_github": "IDENTIFIANT"
+  "identifiant_github": "Lyd-clv"
 }
