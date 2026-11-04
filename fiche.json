@@ -1,8 +1,7 @@
 {
   "type": "Person",
   "nom": "Lydia Schierig",
-  "phrase_identite": "Lydia Schierig est spécialiste du marketing B2B, d'origine allemande et basée à Paris. Elle développe le marché DACH en field marketing chez Powell Software et prépare un MBA marketing digital et IA à De Vinci Executive Education.",
-  "metier": "Junior Marketing Manager DACH",
+  "phrase_identite": "Lydia Schierig est spécialiste du marketing B2B, d'origine allemande et basée à Paris. Elle développe le marché DACH en field marketing chez Powell Software et prépare un MBA marketing digital et IA à De Vinci Executive Education.",  "metier": "Junior Marketing Manager DACH",
   "employeur": {
     "nom": "Powell",
     "url": "https://powell-software.com/de/",
