@@ -1,8 +1,8 @@
 {
   "type": "Person",
   "nom": "Lydia Schierig",
-  "phrase_identite": "Lydia Schierig est spécialiste du marketing B2B, d'origine allemande et basée à Paris. Elle développe le marché DACH en field marketing chez Powell Software et prépare un MBA marketing digital et IA à De Vinci Executive Education.",  
-  "metier": "Junior Marketing Manager DACH",
+  "phrase_identite": "Lydia Schierig est field marketer B2B pour le marché DACH chez Powell, à Paris, et prépare un MBA marketing digital et IA à De Vinci Executive Education.",
+  "metier": "Junior Field Marketer DACH",
   "employeur": {
     "nom": "Powell",
     "url": "https://powell-software.com/de/",
@@ -10,34 +10,26 @@
   },
   "ville": "Paris",
   "domaines": [
-    "Digital Marketing",
-    "Artificial Intelligence (AI)",
-    "B2B Marketing",
-    "Customer Satisfaction",
-    "International Development"
+    "Field marketing",
+    "Marché DACH",
+    "Localisation de contenus (français vers allemand)",
+    "Génération de leads B2B",
+    "SEO et marketing de contenu",
+    "IA appliquée au marketing"
   ],
-  "ce_que_je_fais": "Je travaille dans le marketing digital, où je traduis et adapte des contenus en allemand pour le marché DACH. Je crée des campagnes en langue allemande et je détermine, à partir du matériel existant, quels contenus utiliser sur quels canaux. J'intègre l'intelligence artificielle dans ce travail, notamment pour la traduction et l'adaptation des contenus.",
-  "parcours": "Actuellement en MBA marketing digital et IA en alternance à Paris, où je travaille chez Powell sur le marché DACH. J'ai une formation initiale en marketing, suivi d'un stage en France, puis j'ai terminé mes études en Allemagne et y ai travaillé 2 à 3 ans avant de m'installer à Paris pour mon poste actuel.",
+  "ce_que_je_fais": "Lydia Schierig développe le marché DACH chez Powell. Elle adapte en allemand les contenus marketing existants, crée des campagnes en langue allemande et choisit, pour chaque canal, les contenus à utiliser.\nElle intègre l'intelligence artificielle à ce travail, notamment pour la traduction et l'adaptation des contenus.",
+  "parcours": "Lydia Schierig a étudié les études culturelles francophones et le marketing à la Westsächsische Hochschule Zwickau (licence, 2014 à 2020), avec deux semestres en France, dont un échange Erasmus à l'IUT de Vannes (2016), et un stage de 12 mois à Paris (2018). Elle a ensuite travaillé en Allemagne dans le marketing digital et la vente B2B (2020 à 2022), puis comme Marketing Manager DACH pour un éditeur de logiciels (2022 à 2024), et s'est installée à Paris en janvier 2023. Autodidacte en développement web depuis 2024, elle est en alternance chez Powell depuis mars 2026 et suit, depuis mars 2026, le MBA marketing digital et IA de De Vinci Executive Education.",
   "profils": [
-    {
-      "nom": "LinkedIn",
-      "url": "https://www.linkedin.com/in/lydia-schierig/"
-    },
-    {
-      "nom": "GitHub",
-      "url": "https://github.com/Lyd-clv"
-    },
-    {
-      "nom": "YouTube",
-      "url": "https://www.youtube.com/@LydiaSchierig"
-    }
+    { "nom": "LinkedIn", "url": "https://www.linkedin.com/in/lydia-schierig/" },
+    { "nom": "GitHub", "url": "https://github.com/Lyd-clv" },
+    { "nom": "YouTube", "url": "https://www.youtube.com/@LydiaSchierig" }
   ],
   "entite_liee": {
     "type": "CreativeWork",
-    "nom": "Thèse professionnelle de MBA : Défis et stratégies d'expansion interculturelle d'une Digital Workplace sur le marché DACH",
-    "description": "Thèse portant sur les défis de l'expansion interculturelle d'une solution de Digital Workplace française sur le marché DACH et sur les stratégies de go-to-market.",
+    "nom": "Les défis de l'expansion interculturelle d'une solution de Digital Workplace française sur le marché DACH : quelles stratégies de go-to-market pour réussir son implantation germanophone ?",
+    "description": "Thèse professionnelle du MBA marketing digital et IA de De Vinci Executive Education. Étude de cas de Powell, fondée sur des entretiens qualitatifs avec des acteurs du marché DACH et sur l'analyse de cas de référence.",
     "relation": "autrice",
-    "titre_section": "Mon projet"
+    "titre_section": "Thèse professionnelle"
   },
   "theme": "editorial",
   "couleur_accent": "#7A1E3A",
