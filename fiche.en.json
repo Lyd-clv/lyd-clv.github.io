@@ -1,0 +1,38 @@
+{
+  "type": "Person",
+  "nom": "Lydia Schierig",
+  "phrase_identite": "Lydia Schierig is a B2B field marketer for the DACH market at Powell in Paris, and is completing an MBA in digital marketing and AI at De Vinci Executive Education.",
+  "metier": "Junior Field Marketer DACH",
+  "employeur": {
+    "nom": "Powell",
+    "url": "https://powell-software.com/de/",
+    "description": "French publisher of digital workplace solutions, founded in 2014 and based in Paris."
+  },
+  "ville": "Paris",
+  "domaines": [
+    "Field marketing",
+    "DACH market",
+    "Content localisation (French to German)",
+    "B2B lead generation",
+    "SEO and content marketing",
+    "AI applied to marketing"
+  ],
+  "ce_que_je_fais": "Lydia Schierig develops the DACH market at Powell. She adapts existing marketing content into German, creates German-language campaigns and chooses, for each channel, which content to use.\nShe integrates artificial intelligence into this work, notably for translating and adapting content.",
+  "parcours": "Lydia Schierig studied French cultural studies and marketing at Westsächsische Hochschule Zwickau (bachelor's degree, 2014 to 2020), including two semesters in France, one of them an Erasmus exchange at the IUT de Vannes (2016), and a 12-month internship in Paris (2018 to 2019). From 2020 to 2022 she lived and worked in Berlin in digital marketing and B2B sales, including at a marketing agency. She was then Marketing Manager DACH at a software publisher (2022 to 2024) and moved to Paris in January 2023. Self-taught in web development since 2024, she has been on a work-study placement at Powell since March 2026 while following the MBA in digital marketing and AI at De Vinci Executive Education.",
+  "profils": [
+    { "nom": "LinkedIn", "url": "https://www.linkedin.com/in/lydia-schierig/" },
+    { "nom": "GitHub", "url": "https://github.com/Lyd-clv" },
+    { "nom": "YouTube", "url": "https://www.youtube.com/@LydiaSchierig" }
+  ],
+  "entite_liee": {
+    "type": "CreativeWork",
+    "nom": "Les défis de l'expansion interculturelle d'une solution de Digital Workplace française sur le marché DACH : quelles stratégies de go-to-market pour réussir son implantation germanophone ?",
+    "description": "Professional thesis of the MBA in digital marketing and AI at De Vinci Executive Education, written in French. Case study of Powell, based on qualitative interviews with DACH market stakeholders and on the analysis of reference cases.",
+    "relation": "author",
+    "titre_section": "Professional thesis"
+  },
+  "theme": "editorial",
+  "couleur_accent": "#7A1E3A",
+  "animations": true,
+  "identifiant_github": "Lyd-clv"
+}
