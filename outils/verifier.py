@@ -339,7 +339,8 @@ def verifier_html(html, rapport, nom_fichier="index.html"):
     if pid:
         if not est_url(pid):
             rapport.probleme("L'@id « %s » n'est pas une adresse web complète (https://…)." % pid)
-        elif purl and not normaliser_url(pid).startswith(normaliser_url(purl)):
+        elif purl and not (normaliser_url(pid).startswith(normaliser_url(purl))
+                           or normaliser_url(pid).startswith(normaliser_url(re.sub(r"/(en|de)/?$", "/", purl)))):
             rapport.probleme("L'@id « %s » ne commence pas par l'url « %s » : l'identifiant doit "
                              "appartenir à votre site." % (pid, purl))
         else:
@@ -435,7 +436,7 @@ def verifier_dossier(dossier, rapport=None):
             rapport.ok("llms.txt est au format llmstxt.org et pointe vers moi.md.")
 
     for nom in ("robots.txt", "sitemap.xml"):
-        if not (dossier / nom).exists():
+        if not (dossier / nom).exists() and not (dossier.name in ("en", "de") and (dossier.parent / nom).exists()):
             rapport.conseil("%s est absent." % nom)
     return rapport
 
