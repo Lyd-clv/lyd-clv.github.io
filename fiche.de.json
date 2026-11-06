@@ -1,33 +1,42 @@
 {
   "type": "Person",
   "nom": "Lydia Schierig",
-  "phrase_identite": "Lydia Schierig ist B2B-Field-Marketerin für den DACH-Markt bei Powell in Paris und absolviert einen MBA in digitalem Marketing und KI an der De Vinci Executive Education.",
+  "phrase_identite": "Lydia Schierig arbeitet als Junior Field Marketer DACH im B2B-Bereich bei Powell in Paris. Seit März 2026 absolviert sie den MBA Marketing Digital et Intelligence Artificielle (MDIA) an der De Vinci Executive Education.",
   "metier": "Junior Field Marketer DACH",
   "employeur": {
     "nom": "Powell",
     "url": "https://powell-software.com/de/",
-    "description": "Französischer Anbieter von Digital-Workplace-Lösungen, 2014 gegründet und in Paris ansässig."
+    "description": "Französischer Anbieter von Digital-Workplace-Lösungen, 2014 gegründet, mit Sitz in Paris."
   },
   "ville": "Paris",
   "domaines": [
     "Field Marketing",
     "DACH-Markt",
-    "Lokalisierung von Inhalten (Französisch nach Deutsch)",
+    "Lokalisierung von Inhalten (aus dem Französischen ins Deutsche)",
     "B2B-Leadgenerierung",
     "SEO und Content-Marketing",
     "KI im Marketing"
   ],
-  "ce_que_je_fais": "Lydia Schierig entwickelt bei Powell den DACH-Markt. Sie passt bestehende Marketinginhalte ins Deutsche an, erstellt deutschsprachige Kampagnen und entscheidet für jeden Kanal, welche Inhalte genutzt werden.\nSie setzt dabei künstliche Intelligenz ein, vor allem für die Übersetzung und Anpassung von Inhalten.",
-  "parcours": "Lydia Schierig hat an der Westsächsischen Hochschule Zwickau frankophone Kulturstudien und Marketing studiert (Bachelor, 2014 bis 2020), mit zwei Semestern in Frankreich, darunter ein Erasmus-Austausch am IUT de Vannes (2016), und einem zwölfmonatigen Praktikum in Paris (2018 bis 2019). Von 2020 bis 2022 lebte und arbeitete sie in Berlin im digitalen Marketing und im B2B-Vertrieb, unter anderem in einer Marketingagentur. Danach war sie Marketing Manager DACH bei einem Softwareanbieter (2022 bis 2024) und zog im Januar 2023 nach Paris. Seit 2024 bildet sie sich autodidaktisch in der Webentwicklung weiter. Seit März 2026 arbeitet sie im Rahmen einer Alternance bei Powell und absolviert den MBA in digitalem Marketing und KI an der De Vinci Executive Education.",
+  "ce_que_je_fais": "Lydia Schierig arbeitet bei Powell an der Erschließung des DACH-Marktes. Sie passt bestehende Marketinginhalte für den deutschsprachigen Markt an, erstellt deutschsprachige Kampagnen und wählt für jeden Kanal geeignete Inhalte aus.\nDabei setzt sie künstliche Intelligenz ein, insbesondere zur Übersetzung und Anpassung von Inhalten.",
+  "parcours": "Lydia Schierig studierte von 2014 bis 2020 Languages and Business Administration mit dem Schwerpunkt frankophoner Kulturraum und dem wirtschaftlichen Fachprofil Marketing an der Westsächsischen Hochschule Zwickau und schloss das Studium mit einem Bachelor of Arts ab. Während dieser Zeit verbrachte sie zwei Semester in Frankreich, darunter 2016 ein Erasmus-Austauschsemester am IUT de Vannes, sowie ein zwölfmonatiges Praktikum in Paris (2018 bis 2019). Von 2020 bis 2022 lebte und arbeitete sie in Berlin in den Bereichen digitales Marketing und B2B-Vertrieb, unter anderem in einer Marketingagentur. Anschließend war sie von 2022 bis 2024 als Marketing Manager DACH bei einem Softwareanbieter tätig. Im Januar 2023 zog sie nach Paris. Seit 2024 beschäftigt sie sich im Selbststudium mit Webentwicklung. Im März 2026 begann sie ihre Tätigkeit als Junior Field Marketer DACH bei Powell im Rahmen einer Alternance sowie den MBA Marketing Digital et Intelligence Artificielle (MDIA) an der De Vinci Executive Education.",
   "profils": [
-    { "nom": "LinkedIn", "url": "https://www.linkedin.com/in/lydia-schierig/" },
-    { "nom": "GitHub", "url": "https://github.com/Lyd-clv" },
-    { "nom": "YouTube", "url": "https://www.youtube.com/@LydiaSchierig" }
+    {
+      "nom": "LinkedIn",
+      "url": "https://www.linkedin.com/in/lydia-schierig/"
+    },
+    {
+      "nom": "GitHub",
+      "url": "https://github.com/Lyd-clv"
+    },
+    {
+      "nom": "YouTube",
+      "url": "https://www.youtube.com/@LydiaSchierig"
+    }
   ],
   "entite_liee": {
     "type": "CreativeWork",
     "nom": "Les défis de l'expansion interculturelle d'une solution de Digital Workplace française sur le marché DACH : quelles stratégies de go-to-market pour réussir son implantation germanophone ?",
-    "description": "Thèse professionnelle im MBA Digitales Marketing und KI an der De Vinci Executive Education, auf Französisch verfasst. Fallstudie zu Powell, auf Grundlage qualitativer Interviews mit Akteuren des DACH-Marktes und der Analyse von Referenzfällen.",
+    "description": "Derzeit in Bearbeitung befindliche, auf Französisch verfasste Thèse professionnelle im MBA Marketing Digital et Intelligence Artificielle (MDIA) an der De Vinci Executive Education. Deutsche Übersetzung des Titels: Die Herausforderungen der interkulturellen Expansion einer französischen Digital-Workplace-Lösung auf dem DACH-Markt: Welche Go-to-Market-Strategien ermöglichen eine erfolgreiche Etablierung im deutschsprachigen Raum? Fallstudie zu Powell auf Grundlage qualitativer Interviews mit Akteuren des DACH-Marktes und einer Analyse von Referenzfällen.",
     "relation": "autorin",
     "titre_section": "Thèse professionnelle"
   },
