@@ -1,19 +1,3 @@
-# ---------------------------------------------------------------------------
-# Publier ma page
-#
-# À chaque modification de fiche.json (ou des outils, ou des thèmes) sur la
-# branche main, GitHub :
-#   1. construit la page depuis fiche.json (outils/construire.py) ;
-#   2. vérifie que le code dit vrai (outils/verifier.py) ;
-#   3. publie le résultat sur GitHub Pages.
-#
-# Si la fiche est invalide, le travail s'arrête à l'étape 1 avec un message
-# en français qui dit quoi corriger et où. L'ancienne page reste en ligne.
-#
-# Réglage nécessaire, une seule fois : Settings > Pages > Source : GitHub Actions.
-# Pour relancer à la main : onglet Actions > Publier ma page > Run workflow.
-# ---------------------------------------------------------------------------
-
 name: Publier ma page
 
 on:
@@ -21,6 +5,8 @@ on:
     branches: [main]
     paths:
       - "fiche.json"
+      - "fiche.en.json"
+      - "fiche.de.json"
       - "outils/**"
       - "themes/**"
       - ".github/workflows/publier.yml"
@@ -31,7 +17,6 @@ permissions:
   pages: write
   id-token: write
 
-# Une seule publication à la fois ; celle en cours va jusqu'au bout.
 concurrency:
   group: pages
   cancel-in-progress: false
@@ -46,11 +31,17 @@ jobs:
       - name: Récupérer les fichiers du dépôt
         uses: actions/checkout@v7
 
-      - name: Construire la page depuis fiche.json
-        run: python3 outils/construire.py
+      - name: Construire les pages (français, anglais, allemand)
+        run: |
+          python3 outils/construire.py --langue fr --langues fr,en,de
+          python3 outils/construire.py --langue en --langues fr,en,de --fiche fiche.en.json --sortie _site/en
+          python3 outils/construire.py --langue de --langues fr,en,de --fiche fiche.de.json --sortie _site/de
 
-      - name: Vérifier que le code dit vrai
-        run: python3 outils/verifier.py
+      - name: Vérifier que le code dit vrai (trois langues)
+        run: |
+          python3 outils/verifier.py _site
+          python3 outils/verifier.py _site/en
+          python3 outils/verifier.py _site/de
 
       - name: Vérifier le réglage de GitHub Pages
         id: reglage
@@ -60,7 +51,6 @@ jobs:
           DEPOT_MODELE: ${{ github.repository == 'agencekoeki/mba-mdia-page-entite' }}
         run: |
           if [ "$DEPOT_MODELE" = "true" ]; then
-            # Le dépôt modèle lui-même : on construit et on vérifie (c'est un test), on ne publie pas.
             echo "publier=false" >> "$GITHUB_OUTPUT"
             echo "::notice title=Dépôt modèle::Page construite et vérifiée. Le modèle ne se publie pas : c'est votre copie qui le fera."
             exit 0
@@ -71,7 +61,6 @@ jobs:
             "$GITHUB_API_URL/repos/$GITHUB_REPOSITORY/pages" || echo 000)
           mode=$(python3 -c "import json; print(json.load(open('pages.json')).get('build_type', ''))" 2>/dev/null || true)
           echo "Réponse de GitHub : $code, mode de publication : ${mode:-aucun}"
-          # On ne bloque que si Pages est explicitement en mode « branche » (legacy).
           if [ "$code" = "200" ] && [ "$mode" != "legacy" ]; then
             echo "publier=true" >> "$GITHUB_OUTPUT"
             echo "GitHub Pages est bien réglé sur « GitHub Actions » : on publie."
@@ -84,7 +73,6 @@ jobs:
             explication="GitHub Pages n'est pas encore activé. Allez dans Settings > Pages > Build and deployment > Source, et choisissez « GitHub Actions » (n'acceptez aucun des modèles proposés). Puis relancez : onglet Actions > Publier ma page > Run workflow."
           fi
           if [ "$NOUVELLE_BRANCHE" = "true" ]; then
-            # Premier envoi, juste après « Use this template » : Pages ne peut pas encore être réglé.
             echo "::notice title=Page construite, pas encore publiée::Normal juste après la création du dépôt. $explication"
             printf '## Page construite, pas encore publiée\n\nNormal juste après la création du dépôt.\n\n%s\n' "$explication" >> "$GITHUB_STEP_SUMMARY"
             exit 0
