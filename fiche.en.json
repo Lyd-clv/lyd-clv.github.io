@@ -1,12 +1,12 @@
 {
   "type": "Person",
   "nom": "Lydia Schierig",
-  "phrase_identite": "Lydia Schierig is a B2B field marketer for the DACH market at Powell in Paris, and is completing an MBA in digital marketing and AI at De Vinci Executive Education.",
+  "phrase_identite": "Lydia Schierig works as Junior Field Marketer DACH in B2B at Powell in Paris. She has been pursuing the MBA Marketing Digital et Intelligence Artificielle (MDIA) at De Vinci Executive Education since March 2026.",
   "metier": "Junior Field Marketer DACH",
   "employeur": {
     "nom": "Powell",
     "url": "https://powell-software.com/de/",
-    "description": "French publisher of digital workplace solutions, founded in 2014 and based in Paris."
+    "description": "French provider of digital workplace solutions, founded in 2014 and based in Paris."
   },
   "ville": "Paris",
   "domaines": [
@@ -15,19 +15,28 @@
     "Content localisation (French to German)",
     "B2B lead generation",
     "SEO and content marketing",
-    "AI applied to marketing"
+    "AI in marketing"
   ],
-  "ce_que_je_fais": "Lydia Schierig develops the DACH market at Powell. She adapts existing marketing content into German, creates German-language campaigns and chooses, for each channel, which content to use.\nShe integrates artificial intelligence into this work, notably for translating and adapting content.",
-  "parcours": "Lydia Schierig studied French cultural studies and marketing at Westsächsische Hochschule Zwickau (bachelor's degree, 2014 to 2020), including two semesters in France, one of them an Erasmus exchange at the IUT de Vannes (2016), and a 12-month internship in Paris (2018 to 2019). From 2020 to 2022 she lived and worked in Berlin in digital marketing and B2B sales, including at a marketing agency. She was then Marketing Manager DACH at a software publisher (2022 to 2024) and moved to Paris in January 2023. Self-taught in web development since 2024, she has been on a work-study placement at Powell since March 2026 while following the MBA in digital marketing and AI at De Vinci Executive Education.",
+  "ce_que_je_fais": "Lydia Schierig works on developing Powell's presence in the DACH market. She adapts existing marketing content for German-speaking audiences, creates German-language campaigns and selects suitable content for each channel.\nShe uses artificial intelligence in this work, particularly to translate and adapt content.",
+  "parcours": "Lydia Schierig studied Languages and Business Administration at Westsächsische Hochschule Zwickau from 2014 to 2020, specialising in the Francophone cultural region with a focus on marketing, and earned a Bachelor of Arts. During her studies, she spent two semesters in France, including an Erasmus exchange at IUT de Vannes in 2016, and completed a 12-month internship in Paris (2018 to 2019). From 2020 to 2022, she lived and worked in Berlin in digital marketing and B2B sales, including at a marketing agency. She then worked as Marketing Manager DACH at a software provider from 2022 to 2024. She moved to Paris in January 2023. Since 2024, she has been studying web development independently. In March 2026, she began working as Junior Field Marketer DACH at Powell under a French work-study arrangement (alternance) and started the MBA Marketing Digital et Intelligence Artificielle (MDIA) at De Vinci Executive Education.",
   "profils": [
-    { "nom": "LinkedIn", "url": "https://www.linkedin.com/in/lydia-schierig/" },
-    { "nom": "GitHub", "url": "https://github.com/Lyd-clv" },
-    { "nom": "YouTube", "url": "https://www.youtube.com/@LydiaSchierig" }
+    {
+      "nom": "LinkedIn",
+      "url": "https://www.linkedin.com/in/lydia-schierig/"
+    },
+    {
+      "nom": "GitHub",
+      "url": "https://github.com/Lyd-clv"
+    },
+    {
+      "nom": "YouTube",
+      "url": "https://www.youtube.com/@LydiaSchierig"
+    }
   ],
   "entite_liee": {
     "type": "CreativeWork",
     "nom": "Les défis de l'expansion interculturelle d'une solution de Digital Workplace française sur le marché DACH : quelles stratégies de go-to-market pour réussir son implantation germanophone ?",
-    "description": "Professional thesis of the MBA in digital marketing and AI at De Vinci Executive Education, written in French. Case study of Powell, based on qualitative interviews with DACH market stakeholders and on the analysis of reference cases.",
+    "description": "Professional thesis currently in progress, written in French as part of the MBA Marketing Digital et Intelligence Artificielle (MDIA) at De Vinci Executive Education. English translation of the title: The challenges of cross-cultural expansion for a French digital workplace solution in the DACH market: What go-to-market strategies can support its successful establishment in German-speaking markets? A case study of Powell based on qualitative interviews with DACH market stakeholders and an analysis of reference cases.",
     "relation": "author",
     "titre_section": "Professional thesis"
   },
