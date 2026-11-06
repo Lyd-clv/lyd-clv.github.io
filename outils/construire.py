@@ -52,7 +52,94 @@ from urllib.parse import urlsplit
 
 RACINE = Path(__file__).resolve().parent.parent
 VERSION = "2.1"
+VERSION_LANGUES = "langues 1"
 THEMES = ("clair", "sombre", "editorial")
+
+# ---------------------------------------------------------------------------
+# Langues (extension « langues » : une fiche par langue, un sous-dossier par langue)
+#   français : /          fiche.json
+#   anglais  : /en/       fiche.en.json
+#   allemand : /de/       fiche.de.json
+# Toutes décrivent la MÊME personne (même @id, celui de la page française).
+# ---------------------------------------------------------------------------
+LANGUES = ("fr", "en", "de")
+TEXTES = {
+    "fr": {
+        "html": "fr", "deux_points": " :", "locale": "fr_FR", "nom_langue": "Français", "aria_langue": "Langue de la page",
+        "metier": "Métier", "ville": "Ville", "domaines": "Domaines de compétence", "employeur": "Employeur",
+        "en_bref": "En bref", "activite": "Activité", "parcours": "Parcours", "role": "Rôle",
+        "pages": "Mes pages", "profils": "Me retrouver ailleurs",
+        "md_titre": "Cette page en Markdown", "llms_titre": "Sommaire pour les robots IA",
+        "pied_adresse": "Adresse de cette page :",
+        "pied_machines": "Pour les machines : cette page existe aussi en texte brut, %s, avec son sommaire, %s. "
+                         "Les faits de cette page sont aussi écrits dans son code, en données structurées schema.org.",
+        "pied_credit": "Page construite depuis une seule fiche (%s) pendant le module SEO &amp; GEO "
+                       "du MBA MDIA, De Vinci Executive Education, novembre 2026.",
+        "md_officielle": "Page officielle", "md_photo": "Photo", "md_nom": "Nom", "md_description": "Description",
+        "md_adresse": "Adresse", "md_autres": "Autres langues",
+        "md_jumeau": "Ce fichier est le jumeau Markdown de %s : les mêmes faits, mot pour mot. "
+                     "Il est généré depuis %s, comme la page et ses données structurées.",
+        "llms_site": "Ce site est la page d'entité de %s (%s). C'est la page de référence pour savoir qui est "
+                     "cette personne. La page HTML, son balisage schema.org (Person, @id %s) et la version Markdown "
+                     "disent exactement la même chose.",
+        "llms_pages": "Pages", "llms_md": "Profil en Markdown", "llms_md_d": "tous les faits de la page, en texte brut",
+        "llms_accueil": "Page d'accueil", "llms_accueil_d": "la page de référence, avec ses données structurées schema.org",
+        "llms_profil": "profil de %s sur %s", "llms_langues": "Versions dans d'autres langues",
+        "llms_langue_d": "même personne, même identifiant",
+        "relations": {},
+    },
+    "en": {
+        "html": "en", "deux_points": ":", "locale": "en_GB", "nom_langue": "English", "aria_langue": "Page language",
+        "metier": "Job title", "ville": "City", "domaines": "Areas of expertise", "employeur": "Employer",
+        "en_bref": "At a glance", "activite": "Work", "parcours": "Background", "role": "Role",
+        "pages": "Pages", "profils": "Find me elsewhere",
+        "md_titre": "This page in Markdown", "llms_titre": "Summary for AI robots",
+        "pied_adresse": "Address of this page:",
+        "pied_machines": "For machines: this page also exists as plain text, %s, with its summary, %s. "
+                         "The facts on this page are also written in its code, as schema.org structured data.",
+        "pied_credit": "Page built from a single file (%s) during the SEO &amp; GEO module of the MBA MDIA, "
+                       "De Vinci Executive Education, November 2026.",
+        "md_officielle": "Official page", "md_photo": "Photo", "md_nom": "Name", "md_description": "Description",
+        "md_adresse": "Address", "md_autres": "Other languages",
+        "md_jumeau": "This file is the Markdown twin of %s: the same facts, word for word. "
+                     "It is generated from %s, like the page and its structured data.",
+        "llms_site": "This site is the entity page of %s (%s). It is the reference page to find out who this "
+                     "person is. The HTML page, its schema.org markup (Person, @id %s) and the Markdown version "
+                     "say exactly the same thing.",
+        "llms_pages": "Pages", "llms_md": "Profile in Markdown", "llms_md_d": "all the facts of the page, as plain text",
+        "llms_accueil": "Home page", "llms_accueil_d": "the reference page, with its schema.org structured data",
+        "llms_profil": "profile of %s on %s", "llms_langues": "Versions in other languages",
+        "llms_langue_d": "same person, same identifier",
+        "relations": {"founder": "founder", "memberOf": "member", "author": "author",
+                      "creator": "creator", "contributor": "contributor"},
+    },
+    "de": {
+        "html": "de", "deux_points": ":", "locale": "de_DE", "nom_langue": "Deutsch", "aria_langue": "Sprache der Seite",
+        "metier": "Beruf", "ville": "Ort", "domaines": "Kompetenzfelder", "employeur": "Arbeitgeber",
+        "en_bref": "Auf einen Blick", "activite": "Tätigkeit", "parcours": "Werdegang", "role": "Rolle",
+        "pages": "Seiten", "profils": "Weitere Profile",
+        "md_titre": "Diese Seite als Markdown", "llms_titre": "Übersicht für KI-Roboter",
+        "pied_adresse": "Adresse dieser Seite:",
+        "pied_machines": "Für Maschinen: Diese Seite gibt es auch als reinen Text, %s, mit Übersicht, %s. "
+                         "Die Fakten dieser Seite stehen auch in ihrem Code, als strukturierte Daten nach schema.org.",
+        "pied_credit": "Seite aus einer einzigen Datei (%s) gebaut, im Modul SEO &amp; GEO des MBA MDIA, "
+                       "De Vinci Executive Education, November 2026.",
+        "md_officielle": "Offizielle Seite", "md_photo": "Foto", "md_nom": "Name", "md_description": "Beschreibung",
+        "md_adresse": "Adresse", "md_autres": "Andere Sprachen",
+        "md_jumeau": "Diese Datei ist der Markdown-Zwilling von %s: dieselben Fakten, Wort für Wort. "
+                     "Sie wird aus %s erzeugt, wie die Seite und ihre strukturierten Daten.",
+        "llms_site": "Diese Website ist die Entitätsseite von %s (%s). Sie ist die Referenzseite, um zu wissen, "
+                     "wer diese Person ist. Die HTML-Seite, ihr schema.org-Markup (Person, @id %s) und die "
+                     "Markdown-Version sagen genau dasselbe.",
+        "llms_pages": "Seiten", "llms_md": "Profil als Markdown", "llms_md_d": "alle Fakten der Seite als reiner Text",
+        "llms_accueil": "Startseite", "llms_accueil_d": "die Referenzseite mit ihren strukturierten Daten nach schema.org",
+        "llms_profil": "Profil von %s auf %s", "llms_langues": "Versionen in anderen Sprachen",
+        "llms_langue_d": "dieselbe Person, dieselbe Kennung",
+        "relations": {"founder": "Gründerin", "memberOf": "Mitglied", "author": "Autorin",
+                      "creator": "Schöpferin", "contributor": "Mitwirkende"},
+    },
+}
+
 COULEUR_PAR_DEFAUT = "#2952CC"
 
 # Les champs de fiche.json, dans l'ordre où on les explique (voir fiche.md).
@@ -95,14 +182,14 @@ PLATEFORMES = {
 # Le mot que l'étudiante écrit pour sa place dans l'entité liée → la propriété schema.org.
 RELATIONS = [
     # (début du mot, sans accents)    propriété      type attendu    sens
-    (("cofond", "co-fond", "fond"), "founder", "Organization", "l'organisation a pour fondatrice cette personne"),
+    (("cofond", "co-fond", "fond", "founder", "co-founder", "cofounder", "grunder", "gruender", "mitgrunder", "mitgruender"), "founder", "Organization", "l'organisation a pour fondatrice cette personne"),
     (("membre", "benevole", "adherent", "president", "tresori", "secretaire", "vice-pres", "animat",
-      "coordinat", "responsable", "salari"), "memberOf", "Organization", "la personne est membre de l'organisation"),
-    (("autric", "auteur", "auteure", "coautric", "co-autric", "coauteur", "co-auteur", "redactri", "redacteur"),
+      "coordinat", "responsable", "salari", "member", "mitglied", "volunteer", "president of"), "memberOf", "Organization", "la personne est membre de l'organisation"),
+    (("autric", "auteur", "auteure", "coautric", "co-autric", "coauteur", "co-auteur", "redactri", "redacteur", "author", "co-author", "coauthor", "autor", "mitautor"),
      "author", "CreativeWork", "l'œuvre a pour autrice cette personne"),
-    (("creatri", "createur", "cocreatri", "co-creatri", "realisatri", "realisateur", "conceptri", "concepteur"),
+    (("creatri", "createur", "cocreatri", "co-creatri", "realisatri", "realisateur", "conceptri", "concepteur", "creator", "co-creator", "schopferin", "schoepferin", "schopfer", "schoepfer"),
      "creator", "CreativeWork", "l'œuvre a pour créatrice cette personne"),
-    (("contribut",), "contributor", "CreativeWork", "la personne a contribué à l'œuvre"),
+    (("contribut", "mitwirk"), "contributor", "CreativeWork", "la personne a contribué à l'œuvre"),
 ]
 
 
@@ -1006,6 +1093,19 @@ def premiere_phrase(pg, n=155):
     return pg["titre"]
 
 
+CSS_LANGUES = """/* Sélecteur de langue (extension « langues »). */
+.langues {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: .25rem 1.1rem;
+  margin: 0 0 1.75rem;
+  font-size: .95rem;
+  line-height: 1.4;
+}
+.langues [aria-current] { font-weight: 700; }
+.langues a { text-decoration-thickness: .06em; }"""
+
 EXTRA_CSS = """/* Mallette v2.1 (jour 2) : photo, « Mes pages », pages de contenu. Ajouté par construire.py. */
 .photo { display: inline-block; line-height: 0; border-radius: 50%; }
 .photo img {
@@ -1061,14 +1161,28 @@ def url_depuis_github():
     return "https://%s/%s/" % (hote, nom)
 
 
-def faits(f, url_base):
-    """Tout ce que la page affirme, une seule fois."""
+def faits(f, url_base, langue="fr", id_base=None, langues=None):
+    """Tout ce que la page affirme, une seule fois.
+
+    url_base : l'adresse de CETTE page (pour l'anglais : https://…/en/).
+    id_base  : l'adresse de la page française. L'identifiant de la personne vient toujours
+               d'elle : les versions dans les autres langues décrivent la même entité.
+    langues  : les langues publiées, par exemple ("fr", "en", "de"), pour le sélecteur."""
+    T = TEXTES[langue]
     base = url_base if url_base.endswith("/") else url_base + "/"
-    lignes = [("Métier", f["metier"])]
+    racine = (id_base or url_base)
+    racine = racine if racine.endswith("/") else racine + "/"
+    lignes = [(T["metier"], f["metier"])]
     if f["employeur"]:
-        lignes.append((f["employeur"]["libelle"], f["employeur"]))
-    lignes.append(("Ville", f["ville"]))
-    lignes.append(("Domaines de compétence", f["domaines"]))
+        libelle = f["employeur"]["libelle"]
+        if libelle == "Employeur":
+            libelle = T["employeur"]
+        lignes.append((libelle, f["employeur"]))
+    lignes.append((T["ville"], f["ville"]))
+    lignes.append((T["domaines"], f["domaines"]))
+    liens_langues = []
+    for code in (langues or ()):
+        liens_langues.append((code, TEXTES[code]["nom_langue"], racine + ("" if code == "fr" else code + "/")))
     photo = f.get("photo")
     photo_url = None
     if photo:
@@ -1078,9 +1192,12 @@ def faits(f, url_base):
         pages.append(dict(pg, url=base + pg["slug"] + ".html", url_md=base + pg["slug"] + ".md"))
     return {
         "url": base,
-        "id": base + "#moi",
-        "id_employeur": base + "#employeur",
-        "id_liee": base + "#projet",
+        "id": racine + "#moi",
+        "id_employeur": racine + "#employeur",
+        "id_liee": racine + "#projet",
+        "langue": langue,
+        "T": T,
+        "liens_langues": liens_langues,
         "lignes": lignes,
         **f,
         "photo_url": photo_url,
@@ -1182,6 +1299,11 @@ def couleurs(accent, fond):
             "c_origine": contraste(accent, fond)}
 
 
+def relation_affichee(el, T):
+    """En français, le mot écrit dans la fiche ; dans les autres langues, le mot correspondant à la propriété."""
+    return T["relations"].get(el["propriete"], el["relation"])
+
+
 def page_html(F, css, police_titre):
     L = []
     w = L.append
@@ -1189,7 +1311,8 @@ def page_html(F, css, police_titre):
     bloc = json.dumps(jsonld(F), ensure_ascii=False, indent=2).replace("</", "<\\/")
 
     w("<!doctype html>")
-    w('<html lang="fr">')
+    T = F["T"]
+    w('<html lang="%s">' % T["html"])
     w("<head>")
     w('<meta charset="utf-8">')
     w('<meta name="viewport" content="width=device-width, initial-scale=1">')
@@ -1200,14 +1323,21 @@ def page_html(F, css, police_titre):
     if F.get("verification_google"):
         w('<meta name="google-site-verification" content="%s">' % e(F["verification_google"]))
     w('<link rel="canonical" href="%s">' % e(F["url"]))
-    w('<link rel="alternate" type="text/markdown" href="moi.md" title="Cette page en Markdown">')
-    w('<link rel="describedby" href="llms.txt" title="Sommaire pour les robots IA">')
+    for code, _nom, url_l in F["liens_langues"]:
+        w('<link rel="alternate" hreflang="%s" href="%s">' % (code, e(url_l)))
+    if F["liens_langues"]:
+        w('<link rel="alternate" hreflang="x-default" href="%s">' % e(F["liens_langues"][0][2]))
+    w('<link rel="alternate" type="text/markdown" href="moi.md" title="%s">' % e(T["md_titre"]))
+    w('<link rel="describedby" href="llms.txt" title="%s">' % e(T["llms_titre"]))
     w('<meta property="og:type" content="profile">')
     w('<meta property="og:title" content="%s">' % e(F["nom"]))
     w('<meta property="og:description" content="%s">' % e(F["phrase_identite"]))
     w('<meta property="og:url" content="%s">' % e(F["url"]))
-    w('<meta property="og:locale" content="fr_FR">')
-    w('<meta name="generator" content="Mallette page d\'entité %s (outils/construire.py)">' % VERSION)
+    w('<meta property="og:locale" content="%s">' % T["locale"])
+    for code, _nom, _u in F["liens_langues"]:
+        if code != F["langue"]:
+            w('<meta property="og:locale:alternate" content="%s">' % TEXTES[code]["locale"])
+    w('<meta name="generator" content="Mallette page d\'entité %s, %s (outils/construire.py)">' % (VERSION, VERSION_LANGUES))
     if police_titre:
         w('<link rel="preload" href="polices/%s" as="font" type="font/woff2" crossorigin>' % e(police_titre))
     w("")
@@ -1227,6 +1357,16 @@ def page_html(F, css, police_titre):
         w('<p class="bandeau" role="note"><strong>Exemple fictif.</strong> %s : '
           "cette page montre le résultat attendu du TP.</p>" % e(phrase_fictif(F)))
     w('<main class="page" id="contenu">')
+    if len(F["liens_langues"]) > 1:
+        w('  <nav class="langues" aria-label="%s">' % e(T["aria_langue"]))
+        morceaux_l = []
+        for code, nom_l, url_l in F["liens_langues"]:
+            if code == F["langue"]:
+                morceaux_l.append('<span aria-current="true" lang="%s">%s</span>' % (code, e(nom_l)))
+            else:
+                morceaux_l.append('<a href="%s" hreflang="%s" lang="%s">%s</a>' % (e(url_l), code, code, e(nom_l)))
+        w("    " + " ".join(morceaux_l))
+        w("  </nav>")
     w('  <header class="entete">')
     if F.get("photo_url"):
         w('    <a class="photo" href="%s"><img src="%s" alt="%s" width="208" height="208"></a>' % (
@@ -1240,7 +1380,7 @@ def page_html(F, css, police_titre):
     w("")
     w('  <div class="corps">')
     w('    <section class="fiche" aria-labelledby="t-bref">')
-    w('      <h2 id="t-bref">En bref</h2>')
+    w('      <h2 id="t-bref">%s</h2>' % e(T["en_bref"]))
     w("      <dl>")
     for etiquette, valeur in F["lignes"]:
         if isinstance(valeur, dict):  # l'employeur
@@ -1257,7 +1397,7 @@ def page_html(F, css, police_titre):
         w('        <div class="ligne"><dt>%s</dt><dd>%s</dd></div>' % (e(etiquette), dd))
     w("      </dl>")
     w("    </section>")
-    for cle, titre_s, ident in (("ce_que_je_fais", "Ce que je fais", "t-fais"), ("parcours", "Parcours", "t-parcours")):
+    for cle, titre_s, ident in (("ce_que_je_fais", T["activite"], "t-fais"), ("parcours", T["parcours"], "t-parcours")):
         if F.get(cle):
             w("")
             w('    <section aria-labelledby="%s">' % ident)
@@ -1273,13 +1413,13 @@ def page_html(F, css, police_titre):
         nom = e(el["nom"])
         if el["url"]:
             nom = '<a href="%s">%s</a>' % (e(el["url"]), nom)
-        w("      <p>%s%s</p>" % (nom, (" : %s" % e(el["description"])) if el["description"] else ""))
-        w('      <p>Mon rôle : <span class="relation">%s</span>.</p>' % e(el["relation"]))
+        w("      <p>%s%s</p>" % (nom, ("%s %s" % (T["deux_points"], e(el["description"]))) if el["description"] else ""))
+        w('      <p>%s%s <span class="relation">%s</span>.</p>' % (e(T["role"]), T["deux_points"], e(relation_affichee(el, T))))
         w("    </section>")
     if F.get("pages"):
         w("")
         w('    <section class="mes-pages" aria-labelledby="t-pages">')
-        w('      <h2 id="t-pages">Mes pages</h2>')
+        w('      <h2 id="t-pages">%s</h2>' % e(T["pages"]))
         w('      <ul class="pages-liste">')
         for pg in F["pages"]:
             date = (' <span class="date"><time datetime="%s">%s</time></span>' % (pg["date"], date_fr(pg["date"]))
@@ -1290,7 +1430,7 @@ def page_html(F, css, police_titre):
     if F["profils"]:
         w("")
         w('    <section aria-labelledby="t-ailleurs">')
-        w('      <h2 id="t-ailleurs">Me retrouver ailleurs</h2>')
+        w('      <h2 id="t-ailleurs">%s</h2>' % e(T["profils"]))
         w('      <ul class="profils">')
         for p in F["profils"]:
             w('        <li><a href="%s" rel="me">%s</a> <span class="adresse">%s</span></li>' % (
@@ -1301,12 +1441,9 @@ def page_html(F, css, police_titre):
     w("</main>")
     w("")
     w('<footer class="pied">')
-    w('  <p>Adresse de cette page : <a href="%s">%s</a></p>' % (e(F["url"]), e(F["url"])))
-    w('  <p>Pour les machines : cette page existe aussi en texte brut, <a href="moi.md">moi.md</a>, '
-      'avec son sommaire, <a href="llms.txt">llms.txt</a>. Les faits de cette page sont aussi '
-      "écrits dans son code, en données structurées schema.org.</p>")
-    w('  <p class="credit">Page construite depuis une seule fiche (fiche.json) pendant le module SEO &amp; GEO '
-      "du MBA MDIA, De Vinci Executive Education, novembre 2026.</p>")
+    w('  <p>%s <a href="%s">%s</a></p>' % (T["pied_adresse"], e(F["url"]), e(F["url"])))
+    w('  <p>%s</p>' % (T["pied_machines"] % ('<a href="moi.md">moi.md</a>', '<a href="llms.txt">llms.txt</a>')))
+    w('  <p class="credit">%s</p>' % (T["pied_credit"] % F.get("nom_fiche", "fiche.json")))
     w("</footer>")
     w("</body>")
     w("</html>")
@@ -1314,21 +1451,26 @@ def page_html(F, css, police_titre):
 
 
 def moi_md(F):
+    T = F["T"]
     L = []
     w = L.append
     w("# %s" % F["nom"])
     w("")
     w("> %s" % F["phrase_identite"])
     w("")
-    w("Page officielle : %s" % F["url"])
+    w("%s%s %s" % (T["md_officielle"], T["deux_points"], F["url"]))
     w("")
     if F.get("photo_url"):
-        w("Photo : %s" % F["photo_url"])
+        w("%s%s %s" % (T["md_photo"], T["deux_points"], F["photo_url"]))
+        w("")
+    autres = [(c, n, u) for c, n, u in F["liens_langues"] if c != F["langue"]]
+    if autres:
+        w("%s%s %s" % (T["md_autres"], T["deux_points"], ", ".join("%s (%s)" % (n, u) for c, n, u in autres)))
         w("")
     if F["fictif"]:
         w("Exemple fictif : %s." % phrase_fictif(F))
         w("")
-    w("## En bref")
+    w("## %s" % T["en_bref"])
     w("")
     for etiquette, valeur in F["lignes"]:
         if isinstance(valeur, dict):
@@ -1341,8 +1483,8 @@ def moi_md(F):
             t = ", ".join(valeur)
         else:
             t = valeur
-        w("- %s : %s" % (etiquette, t))
-    for cle, titre_s in (("ce_que_je_fais", "Ce que je fais"), ("parcours", "Parcours")):
+        w("- %s%s %s" % (etiquette, T["deux_points"], t))
+    for cle, titre_s in (("ce_que_je_fais", T["activite"]), ("parcours", T["parcours"])):
         if F.get(cle):
             w("")
             w("## %s" % titre_s)
@@ -1354,34 +1496,34 @@ def moi_md(F):
         w("")
         w("## %s" % el["titre_section"])
         w("")
-        w("- Nom : %s" % el["nom"])
+        w("- %s%s %s" % (T["md_nom"], T["deux_points"], el["nom"]))
         if el["description"]:
-            w("- Description : %s" % el["description"])
-        w("- Mon rôle : %s" % el["relation"])
+            w("- %s%s %s" % (T["md_description"], T["deux_points"], el["description"]))
+        w("- %s%s %s" % (T["role"], T["deux_points"], relation_affichee(el, T)))
         if el["url"]:
-            w("- Adresse : %s" % el["url"])
+            w("- %s%s %s" % (T["md_adresse"], T["deux_points"], el["url"]))
     if F.get("pages"):
         w("")
-        w("## Mes pages")
+        w("## %s" % T["pages"])
         w("")
         for pg in F["pages"]:
             w("- %s%s : %s (en Markdown : %s)" % (pg["titre"], (", %s" % date_fr(pg["date"])) if pg["date"] else "",
                                                  pg["url"], pg["url_md"]))
     if F["profils"]:
         w("")
-        w("## Me retrouver ailleurs")
+        w("## %s" % T["profils"])
         w("")
         for p in F["profils"]:
             w("- %s : %s" % (p["nom"], p["url"]))
     w("")
     w("---")
     w("")
-    w("Ce fichier est le jumeau Markdown de %s : les mêmes faits, mot pour mot. "
-      "Il est généré depuis fiche.json, comme la page et ses données structurées." % F["url"])
+    w(T["md_jumeau"] % (F["url"], F.get("nom_fiche", "fiche.json")))
     return "\n".join(L) + "\n"
 
 
 def llms_txt(F):
+    T = F["T"]
     L = []
     w = L.append
     w("# %s" % F["nom"])
@@ -1389,17 +1531,15 @@ def llms_txt(F):
     w("> %s" % F["phrase_identite"])
     w("")
     resume = "%s, %s" % (F["metier"], F["ville"])
-    w("Ce site est la page d'entité de %s (%s). C'est la page de référence pour savoir qui est "
-      "cette personne. La page HTML, son balisage schema.org (Person, @id %s) et la version Markdown "
-      "disent exactement la même chose." % (F["nom"], resume, F["id"]))
+    w(T["llms_site"] % (F["nom"], resume, F["id"]))
     if F["fictif"]:
         w("")
         w("Exemple fictif : %s." % phrase_fictif(F))
     w("")
-    w("## Pages")
+    w("## %s" % T["llms_pages"])
     w("")
-    w("- [Profil en Markdown](%smoi.md): tous les faits de la page, en texte brut" % F["url"])
-    w("- [Page d'accueil](%s): la page de référence, avec ses données structurées schema.org" % F["url"])
+    w("- [%s](%smoi.md): %s" % (T["llms_md"], F["url"], T["llms_md_d"]))
+    w("- [%s](%s): %s" % (T["llms_accueil"], F["url"], T["llms_accueil_d"]))
     for pg in F.get("pages") or []:
         w("- [%s](%s): page de contenu signée par %s%s (en Markdown : %s)" % (
             pg["titre"], pg["url"], F["nom"], (", publiée le %s" % date_fr(pg["date"])) if pg["date"] else "", pg["url_md"]))
@@ -1408,7 +1548,14 @@ def llms_txt(F):
         w("## Optional")
         w("")
         for p in F["profils"]:
-            w("- [%s](%s): profil de %s sur %s" % (p["nom"], p["url"], F["nom"], nom_plateforme(p["url"])))
+            w("- [%s](%s): %s" % (p["nom"], p["url"], T["llms_profil"] % (F["nom"], nom_plateforme(p["url"]))))
+    autres = [(c, n, u) for c, n, u in F["liens_langues"] if c != F["langue"]]
+    if autres:
+        w("")
+        w("## %s" % T["llms_langues"])
+        w("")
+        for c, n, u in autres:
+            w("- [%s](%s): %s" % (n, u, T["llms_langue_d"]))
     return "\n".join(L) + "\n"
 
 
@@ -1552,16 +1699,24 @@ def robots_txt(F):
 
 
 def sitemap_xml(F):
-    lignes = ["  <url><loc>%s</loc></url>" % html.escape(F["url"])]
+    alt = "".join('<xhtml:link rel="alternate" hreflang="%s" href="%s"/>' % (c, html.escape(u))
+                  for c, _n, u in F["liens_langues"])
+    if alt:
+        lignes = ["  <url><loc>%s</loc>%s</url>" % (html.escape(F["url"]), alt)]
+        for c, _n, u in F["liens_langues"]:
+            if u != F["url"]:
+                lignes.append("  <url><loc>%s</loc>%s</url>" % (html.escape(u), alt))
+    else:
+        lignes = ["  <url><loc>%s</loc></url>" % html.escape(F["url"])]
     for pg in F.get("pages") or []:
         lm = "<lastmod>%s</lastmod>" % pg["date"] if pg["date"] else ""
         lignes.append("  <url><loc>%s</loc>%s</url>" % (html.escape(pg["url"]), lm))
     return ('<?xml version="1.0" encoding="UTF-8"?>\n'
-            '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+            '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n'
             + "\n".join(lignes) + "\n</urlset>\n")
 
 
-def construire(f, url_base, sortie, dossier_themes, j=None):
+def construire(f, url_base, sortie, dossier_themes, j=None, langue="fr", id_base=None, langues=None, nom_fiche="fiche.json"):
     base, css_theme, mouvement, fond, polices = lire_theme(dossier_themes, f["theme"])
     c = couleurs(f["couleur_accent"], fond)
     variables = (":root {\n  --accent: %s;\n  --accent-texte: %s;\n  --sur-accent: %s;\n}\n"
@@ -1576,16 +1731,19 @@ def construire(f, url_base, sortie, dossier_themes, j=None):
         morceaux.append(EXTRA_CSS)
         if f["animations"]:
             morceaux.append(EXTRA_MOUVEMENT)
+    morceaux.append(CSS_LANGUES)
     morceaux.append("/* La couleur d'accent de fiche.json (ajustée si besoin pour rester lisible). */\n" + variables.strip())
     css = "\n\n".join(morceaux)
 
-    F = faits(f, url_base)
+    F = faits(f, url_base, langue, id_base, langues)
+    F["nom_fiche"] = nom_fiche
     sortie.mkdir(parents=True, exist_ok=True)
     (sortie / "index.html").write_text(page_html(F, css, polices[0] if polices else None), encoding="utf-8")
     (sortie / "moi.md").write_text(moi_md(F), encoding="utf-8")
     (sortie / "llms.txt").write_text(llms_txt(F), encoding="utf-8")
-    (sortie / "robots.txt").write_text(robots_txt(F), encoding="utf-8")
-    (sortie / "sitemap.xml").write_text(sitemap_xml(F), encoding="utf-8")
+    if langue == "fr":  # robots.txt et sitemap.xml : une seule fois, à la racine du site
+        (sortie / "robots.txt").write_text(robots_txt(F), encoding="utf-8")
+        (sortie / "sitemap.xml").write_text(sitemap_xml(F), encoding="utf-8")
     (sortie / ".nojekyll").write_text("", encoding="utf-8")
 
     if F.get("photo") and F["photo"]["fichier"]:
@@ -1705,7 +1863,17 @@ def main(argv=None):
     ap.add_argument("--sortie", default=str(RACINE / "_site"), help="le dossier à produire (défaut : _site)")
     ap.add_argument("--url-base", default=None, help="l'adresse de la page, par exemple https://marie.github.io/")
     ap.add_argument("--themes", default=str(RACINE / "themes"), help="le dossier des thèmes")
+    ap.add_argument("--langue", default="fr", choices=LANGUES, help="la langue de cette fiche (défaut : fr)")
+    ap.add_argument("--langues", default="", help="les langues publiées, séparées par des virgules, par exemple fr,en,de")
     a = ap.parse_args(argv)
+    langues_pub = tuple(x.strip() for x in a.langues.split(",") if x.strip())
+    for x in langues_pub:
+        if x not in LANGUES:
+            print("Langue inconnue : %s (langues possibles : %s)." % (x, ", ".join(LANGUES)))
+            return 2
+    if langues_pub and a.langue not in langues_pub:
+        print("--langue %s doit figurer dans --langues." % a.langue)
+        return 2
 
     chemin = Path(a.fiche)
     if not chemin.is_absolute() and not chemin.exists():
@@ -1761,7 +1929,13 @@ def main(argv=None):
         print("L'adresse « %s » n'est pas valide (exemple : https://marie.github.io/)." % url_base)
         return 2
 
-    F, c = construire(f, url_base, sortie, Path(a.themes), j)
+    id_base = url_base if url_base.endswith("/") else url_base + "/"
+    url_page = id_base if a.langue == "fr" else id_base + a.langue + "/"
+    if a.langue != "fr" and f.get("pages"):
+        print("Les pages de contenu (champ « pages ») ne sont pas encore prises en charge dans %s : "
+              "elles restent dans la fiche française." % nom_fichier)
+        return 1
+    F, c = construire(f, url_page, sortie, Path(a.themes), j, a.langue, id_base, langues_pub, nom_fichier)
 
     if c["accent_texte"] != f["couleur_accent"]:
         j.conseil("couleur_accent", "%s n'a qu'un contraste de %.1f:1 sur le thème %s : trop faible pour du texte. "
@@ -1778,7 +1952,7 @@ def main(argv=None):
     print("  Identifiant   : %s" % F["id"])
     print("  Thème         : %s, accent %s, animations %s" % (f["theme"], f["couleur_accent"], "oui" if f["animations"] else "non"))
     print("  Contraste     : liens %.1f:1 sur le fond (AA demande 4,5:1)" % c["c_texte"])
-    print("  Fichiers      : index.html, moi.md, llms.txt, robots.txt, sitemap.xml, .nojekyll, polices/")
+    print("  Fichiers      : index.html, moi.md, llms.txt%s, .nojekyll, polices/" % (", robots.txt, sitemap.xml" if a.langue == "fr" else ""))
     if F.get("photo_url"):
         print("  Photo         : %s" % F["photo_url"])
     if F.get("verification_google"):
